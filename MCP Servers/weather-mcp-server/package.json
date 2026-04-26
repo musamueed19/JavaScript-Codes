@@ -1,0 +1,19 @@
+{
+  "name": "weather-mcp-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "mcp.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node mcp.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "openmeteo": "^1.2.3",
+    "zod": "^4.3.6"
+  }
+}
