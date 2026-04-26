@@ -1,5 +1,5 @@
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp";
-import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio";
+import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { z } from "zod";
 import { fetchWeatherApi } from "openmeteo";
 
@@ -44,8 +44,7 @@ WeatherMcpServer.registerTool(
                 temperature_unit: "fahrenheit",
                 precipitation_unit: "inch",
 
-            },
-
+            };
 
             const OPENMETEO_API_BASE_URL = `https://api.open-meteo.com/v1`;
             const responses = await fetchWeatherApi(`${OPENMETEO_API_BASE_URL}/forecast`, params);

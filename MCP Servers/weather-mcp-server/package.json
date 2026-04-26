@@ -2,10 +2,10 @@
   "name": "weather-mcp-server",
   "version": "1.0.0",
   "description": "",
-  "main": "mcp.js",
+  "main": "weather-mcp-server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "node mcp.js"
+    "dev": "node weather-mcp-server.js"
   },
   "keywords": [],
   "author": "",
