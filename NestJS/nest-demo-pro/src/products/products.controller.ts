@@ -38,9 +38,9 @@ export class ProductsController {
     }
 
     @Get(':id')
-    findOne(
-        @Param('id') id: string
-    ) {
+    findOne<T>(
+        @Param('id') id: T
+    ): {id: T} {
         return {
             id
         }
