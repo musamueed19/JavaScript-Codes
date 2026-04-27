@@ -1,8 +1,22 @@
 import { Controller, Get, Header, HttpCode, Logger, Param, Post, Query, Redirect, Request, Response } from '@nestjs/common';
-import type { AllProductsResponse } from './types/types';
+import type { AllProductsResponse } from './type/product.type';
+import { ProductsService } from './products.service';
 
 @Controller('products')
 export class ProductsController {
+    constructor() {
+        private productService: ProductsService
+
+
+        // create product with Body Decorator
+        // return Promise, and use interface using type
+
+
+
+
+
+        // List product service
+    }
     /**
      * 
     @Get('/')
