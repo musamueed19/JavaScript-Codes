@@ -1,5 +1,5 @@
 import { Controller, Get, Header, HttpCode, Logger, Param, Post, Query, Redirect, Request, Response } from '@nestjs/common';
-import type { AllProductsResponse } from './type/product.type';
+import type { AllProductsResponse } from './interface/product.interface';
 import { ProductsService } from './products.service';
 
 @Controller('products')
