@@ -14,7 +14,7 @@ export default class Solution {
 
 
         // Initialize stack
-        const stack = new Stack<string>()
+        const stack = new Stack<string>(1000000) // Assuming max size of stack is 1000000, you can adjust as needed
 
 
         // loop each char in string
