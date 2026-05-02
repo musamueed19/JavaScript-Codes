@@ -84,10 +84,10 @@ export class Stack<T> {
 
     /**
      * Print the stack elements to the console
-     * @returns void
+     * @returns string representation of the stack elements
      */
-    print() : void {
-        console.log(this.items.toString());
+    print() : string {
+        return (this.items.toString());
     }
 
     /**
