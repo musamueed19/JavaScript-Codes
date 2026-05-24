@@ -66,6 +66,10 @@ export class Stack<T> {
         return this.items[this.items.length - 1];
     }
 
+
+    // | 0 |        ->        | 1 |                 ->                          | 2 |
+    // datatype size (2 bytes) * (index + 1) = memory address
+
     /**
      * Get the number of elements in the stack
      * @returns Size of the stack
