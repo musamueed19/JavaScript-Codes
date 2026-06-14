@@ -6,7 +6,7 @@ CREATE TABLE IF NOT EXISTS notes (
     id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
     -- auth.user.id foreign key reference in notes.user_id
     -- and when auth.user record deleted => this notes record also deleted.
-    user_id UUID NOT NULL REFERENCES auth.users(id) ON DELETE CASCASE,
+    user_id UUID NOT NULL REFERENCES auth.users(id) ON DELETE CASCADE,
     title TEXT NOT NULL,
     content TEXT NOT NULL,
     created_at TIMESTAMPTZ DEFAULT now(),
@@ -47,7 +47,7 @@ CREATE POLICY "user can delete their notes record"
 
 -- Create a function to update updated_at timestamp
 CREATE OR REPLACE FUNCTION update_updated_at_to_current_timestamp()
-RETURN TRIGGER AS $$
+RETURNS TRIGGER AS $$
 BEGIN
     NEW.updated_at = now();
     RETURN NEW;
@@ -58,4 +58,5 @@ $$ language 'plpgsql';
 CREATE TRIGGER update_notes_updated_at_of_modified_row
     BEFORE UPDATE ON notes
     FOR EACH ROW
-    EXECUTE PROCEDURE update_updated_at_to_current_timestamp();
+    -- use FUNCTION as PROCEDURE is deprecated in newer versions of PostgreSQL
+    EXECUTE FUNCTION update_updated_at_to_current_timestamp();
