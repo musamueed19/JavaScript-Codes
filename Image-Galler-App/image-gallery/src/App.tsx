@@ -1,10 +1,11 @@
-import { Header } from "./shared";
+import { CardsList } from "./gallery-page/components";
+import { HeaderLayout } from "./page-layouts";
 
 const App = () => {
   return (
-    <>
-      <Header />
-    </>
+    <HeaderLayout>
+      <CardsList />
+    </HeaderLayout>
   );
 };
 
