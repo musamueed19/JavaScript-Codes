@@ -34,27 +34,6 @@ const Navbar = () => {
             </li>
           </ul>
 
-          {/* Login Dropdown */}
-          <div className="nav-item dropdown me-4">
-            <a
-              href="#"
-              className="nav-link dropdown-toggle"
-              role="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              Login
-            </a>
-            <ul className="dropdown-menu">
-              <li className="dropdown-item">
-                <a href="/login">Login</a>
-              </li>
-              <li className="dropdown-item">
-                <a href="/register">Get Started</a>
-              </li>
-            </ul>
-          </div>
-
           {/* Form => searchbar, search btn */}
           <form role="search" className="d-flex">
             <input
@@ -67,6 +46,27 @@ const Navbar = () => {
               Search
             </button>
           </form>
+
+          {/* Login Dropdown */}
+          <ul className="navbar-nav mb-2 mb-lg-0">
+            <li className="nav-item dropdown">
+              <a
+                href="#"
+                className="nav-link dropdown-toggle"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                id="navbarDropdown"
+              >
+                Login
+              </a>
+              <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li className="dropdown-item text-center">
+                  <a href="/profile">Profile</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
         </div>
       </div>
     </nav>
