@@ -53,8 +53,7 @@ const bootstrap = async () => {
   console.log("Redis Ready: ", redisClient.isReady);
 
 
-  // Broker Setup
-  const channel: BrokerChannel = await getBrokerChannel();
+  // Broker Setup (done)
 
   // server listening setup
   app.listen(port, () => {
