@@ -5,3 +5,5 @@ export type DatabaseConfig = {
 export type RedisConfig = {
   redisURL: string;
 };
+
+export type BrokerConfig = { hostname: string; port: number; username: string; password: string; }

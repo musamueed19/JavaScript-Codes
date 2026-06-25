@@ -4,10 +4,10 @@ import { getRedisConfig } from "../config/redisConfig.js";
 export type RedisClient = Awaited<ReturnType<typeof getRedisClient>>;
 
 export const getRedisClient = async () => {
-  const redisConfig = getRedisConfig();
+  const {redisURL: url} = getRedisConfig();
   // Initialize and return the Redis client instance
   const client = createClient({
-    url: redisConfig.redisURL,
+    url,
   });
   client.on("error", (err) => {
     console.error("❌ Redis error:", err);

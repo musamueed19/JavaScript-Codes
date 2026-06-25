@@ -7,10 +7,16 @@ import {
   getRedisClient,
   type RedisClient,
 } from "./shared/redisClient.service.js";
+import { getBrokerChannel, type BrokerChannel } from "./broker/rabbitmqClient.service.js";
 dotenv
   .config
   // { override: true, quiet: false }
   ();
+
+
+
+  // Routes Import
+  import userRoutes from "./users/users.controller.js"
 
 // environment variables defined here --------------
 const port = process.env.PORT || 5000;
@@ -35,12 +41,20 @@ app.get("/health", (req, res) => {
 // let dbConnection: ReturnType<typeof connectDatabase> | null = null;
 let redisClient: RedisClient | null = null;
 
+
+// routes defination
+app.use("api/v1", userRoutes)
+
 // Bootstrap the Users Service
 const bootstrap = async () => {
   // DB and Redis Setup
   await connectDatabase(dbConfig);
   redisClient = await getRedisClient();
   console.log("Redis Ready: ", redisClient.isReady);
+
+
+  // Broker Setup
+  const channel: BrokerChannel = await getBrokerChannel();
 
   // server listening setup
   app.listen(port, () => {
